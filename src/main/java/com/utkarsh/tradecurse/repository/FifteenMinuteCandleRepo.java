@@ -2,6 +2,7 @@ package com.utkarsh.tradecurse.repository;
 
 import com.utkarsh.tradecurse.model.Company;
 import com.utkarsh.tradecurse.model.FifteenMinuteCandle;
+import com.utkarsh.tradecurse.model.MinuteCandle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,6 @@ public interface FifteenMinuteCandleRepo extends JpaRepository<FifteenMinuteCand
     List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqualOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan);
 
     List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
+
+    List<FifteenMinuteCandle> getByCompanyAndTimestampAfterOrderByTimestampAsc(Company company, LocalDateTime timestampAfter);
 }

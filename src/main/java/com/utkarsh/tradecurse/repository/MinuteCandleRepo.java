@@ -15,4 +15,6 @@ public interface MinuteCandleRepo extends JpaRepository<MinuteCandle,Long> {
     List<MinuteCandle> findByCompanyAndTimestampGreaterThanEqualOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan);
 
     List<MinuteCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
+
+    List<MinuteCandle> getByCompanyAndTimestampAfterOrderByTimestampAsc(Company company, LocalDateTime timestampAfter);
 }

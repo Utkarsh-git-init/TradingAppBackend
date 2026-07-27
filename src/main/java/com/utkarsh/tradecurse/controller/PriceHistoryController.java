@@ -1,5 +1,6 @@
 package com.utkarsh.tradecurse.controller;
 
+import com.utkarsh.tradecurse.model.FifteenMinuteCandle;
 import com.utkarsh.tradecurse.model.MinuteCandle;
 import com.utkarsh.tradecurse.service.PriceHistoryService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +21,7 @@ public class PriceHistoryController {
     }
 
     @GetMapping("/company/price_history/{companyId}")
-    public List<MinuteCandle> get24hrHistory(@PathVariable Integer companyId){
+    public List<FifteenMinuteCandle> get24hrHistory(@PathVariable Integer companyId){
         return priceHistoryService.get24hrHistory(companyId);
     }
 }

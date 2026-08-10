@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -64,7 +65,7 @@ public class CandleService {
                 candles.getAndSet(new ConcurrentHashMap<>());
 
         List<MinuteCandle> minuteCandleList =new ArrayList<>();
-        LocalDateTime timestamp=LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+        LocalDateTime timestamp=LocalDateTime.now(ZoneId.of("Asia/Kolkata")).truncatedTo(ChronoUnit.MINUTES);
         for(Company company:companyService.getCompanies().values()){
             MinuteCandle minuteCandle=new MinuteCandle();
             CurrentCandle candle=snapshot.get(company.getId());

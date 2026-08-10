@@ -9,6 +9,7 @@ import com.utkarsh.tradecurse.repository.MinuteCandleRepo;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -28,6 +29,6 @@ public class PriceHistoryService {
   //      return fifteenMinuteCandleRepo.getByCompanyOrderByTimestampAsc(company);
       //  return minuteCandleRepo.getByCompanyOrderByTimestampAsc(company);
         return fifteenMinuteCandleRepo
-                .getByCompanyAndTimestampAfterOrderByTimestampAsc(company, LocalDateTime.now().minusDays(1));
+                .getByCompanyAndTimestampAfterOrderByTimestampAsc(company, LocalDateTime.now(ZoneId.of("Asia/Kolkata")).minusDays(1));
     }
 }

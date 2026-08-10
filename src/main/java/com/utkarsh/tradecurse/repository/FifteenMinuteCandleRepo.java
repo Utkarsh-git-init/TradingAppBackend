@@ -18,4 +18,6 @@ public interface FifteenMinuteCandleRepo extends JpaRepository<FifteenMinuteCand
     List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
 
     List<FifteenMinuteCandle> getByCompanyAndTimestampAfterOrderByTimestampAsc(Company company, LocalDateTime timestampAfter);
+
+    List<FifteenMinuteCandle> getByCompanyOrderByTimestampAsc(Company company);
 }

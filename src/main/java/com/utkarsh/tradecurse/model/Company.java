@@ -1,5 +1,6 @@
 package com.utkarsh.tradecurse.model;
 
+import com.utkarsh.tradecurse.enums.Sector;
 import com.utkarsh.tradecurse.enums.Volatility;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +17,11 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String sector;
+    private Sector sector;
     private BigDecimal currentPrice;
+    private BigDecimal fairPrice;
     private Volatility volatility;
+    private double growthRate;
+    private double meanReversion;
+    private double trend;
 }

@@ -15,14 +15,18 @@ import java.util.List;
 public class PriceHistoryService {
     private final CompanyRepo companyRepo;
     private final FifteenMinuteCandleRepo fifteenMinuteCandleRepo;
+    private final MinuteCandleRepo minuteCandleRepo;
 
-    public PriceHistoryService(CompanyRepo companyRepo, FifteenMinuteCandleRepo fifteenMinuteCandleRepo) {
+    public PriceHistoryService(CompanyRepo companyRepo, FifteenMinuteCandleRepo fifteenMinuteCandleRepo, MinuteCandleRepo minuteCandleRepo) {
         this.companyRepo = companyRepo;
         this.fifteenMinuteCandleRepo = fifteenMinuteCandleRepo;
+        this.minuteCandleRepo = minuteCandleRepo;
     }
 
     public List<FifteenMinuteCandle> get24hrHistory(Integer companyId) {
         Company company=companyRepo.getReferenceById(companyId);
+  //      return fifteenMinuteCandleRepo.getByCompanyOrderByTimestampAsc(company);
+      //  return minuteCandleRepo.getByCompanyOrderByTimestampAsc(company);
         return fifteenMinuteCandleRepo
                 .getByCompanyAndTimestampAfterOrderByTimestampAsc(company, LocalDateTime.now().minusDays(1));
     }

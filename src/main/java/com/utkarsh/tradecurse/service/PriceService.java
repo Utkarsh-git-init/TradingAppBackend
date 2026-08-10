@@ -19,26 +19,20 @@ public class PriceService {
     private final CompanyService companyService;
     private final CandleService candleService;
     private final PriceStreamService priceStreamService;
+    private final PriceSimulationService priceSimulationService;
 
-    public PriceService(CompanyService companyService, CandleService candleService, PriceStreamService priceStreamService) {
+    public PriceService(CompanyService companyService, CandleService candleService, PriceStreamService priceStreamService, PriceSimulationService priceSimulationService) {
         this.companyService = companyService;
         this.candleService = candleService;
         this.priceStreamService = priceStreamService;
+        this.priceSimulationService = priceSimulationService;
     }
     @Scheduled(fixedRate = 1000)
     public void generatePrices(){
 //        log.info("updating prices");
         List<CurrentPriceDto> prices=new ArrayList<>();
         for(Company company:companyService.getCompanies().values()){
-            double max=company.getVolatility().getMaxChange();
-            double percentageChange=ThreadLocalRandom.current().nextDouble(-max,max);
-            BigDecimal multiplier=BigDecimal.valueOf(1+percentageChange/100);
-            BigDecimal newPrice=company.getCurrentPrice()
-                    .multiply(multiplier)
-                    .setScale(2, RoundingMode.HALF_UP);
-            if (newPrice.compareTo(BigDecimal.ONE) < 0) {
-                newPrice = BigDecimal.ONE;
-            }
+            BigDecimal newPrice=priceSimulationService.nextPrice(company);
             company.setCurrentPrice(newPrice);
             prices.add(new CurrentPriceDto(company.getId(),newPrice));
             candleService.updatePrice(company.getId(),newPrice);

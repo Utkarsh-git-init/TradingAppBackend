@@ -4,13 +4,13 @@ import lombok.Getter;
 
 @Getter
 public enum Volatility {
-    LOW(1),
-    MID(2),
-    HIGH(4);
+    LOW(0.15),
+    MID(0.30),
+    HIGH(0.60);
+    private final double baseSigma;
 
-    private final double maxChange;
-    Volatility(double maxChange){
-        this.maxChange=maxChange;
+    Volatility(double baseSigma) {
+        this.baseSigma = baseSigma;
     }
 
 }

@@ -1,8 +1,7 @@
-package com.utkarsh.tradecurse.model;
+package com.utkarsh.tradecurse.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,10 +13,10 @@ import java.time.LocalDateTime;
                 columnNames = {"company_id", "timestamp"}
         ),
         indexes = {
-                @Index(name = "idx_minute_company_timestamp", columnList = "company_id,timestamp")
+                @Index(name = "idx_hour_company_timestamp", columnList = "company_id,timestamp")
         }
 )
-public class MinuteCandle {
+public class HourCandle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

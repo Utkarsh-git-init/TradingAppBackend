@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/stream")
 public class PriceController {
     private final PriceStreamService priceStreamService;

@@ -1,16 +1,14 @@
 package com.utkarsh.tradecurse.service;
 
 import com.utkarsh.tradecurse.dto.CurrentPriceDto;
-import com.utkarsh.tradecurse.model.Company;
+import com.utkarsh.tradecurse.entity.Company;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Slf4j
 @Service

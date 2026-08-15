@@ -1,13 +1,12 @@
 package com.utkarsh.tradecurse.controller;
 
-import com.utkarsh.tradecurse.model.Company;
+import com.utkarsh.tradecurse.entity.Company;
 import com.utkarsh.tradecurse.service.CompanyService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
 public class CompanyController {
     private final CompanyService companyService;
 

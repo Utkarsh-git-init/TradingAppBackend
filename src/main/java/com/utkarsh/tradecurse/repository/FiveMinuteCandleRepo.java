@@ -1,7 +1,7 @@
 package com.utkarsh.tradecurse.repository;
 
-import com.utkarsh.tradecurse.model.Company;
-import com.utkarsh.tradecurse.model.FiveMinuteCandle;
+import com.utkarsh.tradecurse.entity.Company;
+import com.utkarsh.tradecurse.entity.FiveMinuteCandle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

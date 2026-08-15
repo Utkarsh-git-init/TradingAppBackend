@@ -1,6 +1,6 @@
 package com.utkarsh.tradecurse.service;
 
-import com.utkarsh.tradecurse.model.Company;
+import com.utkarsh.tradecurse.entity.Company;
 import com.utkarsh.tradecurse.model.MarketState;
 import com.utkarsh.tradecurse.model.SimulationState;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -137,10 +137,12 @@ public class PriceSimulationService {
             BigDecimal multiplier =
                     BigDecimal.valueOf(Math.exp(growthPerTick + random));
 
-            company.setFairPrice(
+            BigDecimal newFairPrice =
                     company.getFairPrice()
                             .multiply(multiplier)
-            );
+                            .setScale(2, RoundingMode.HALF_UP);
+
+            company.setFairPrice(newFairPrice);
         }
     }
 }

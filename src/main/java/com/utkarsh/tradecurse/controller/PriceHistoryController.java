@@ -1,7 +1,6 @@
 package com.utkarsh.tradecurse.controller;
 
-import com.utkarsh.tradecurse.model.FifteenMinuteCandle;
-import com.utkarsh.tradecurse.model.MinuteCandle;
+import com.utkarsh.tradecurse.entity.FifteenMinuteCandle;
 import com.utkarsh.tradecurse.service.PriceHistoryService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,6 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin("*")
 public class PriceHistoryController {
     private final PriceHistoryService priceHistoryService;
 

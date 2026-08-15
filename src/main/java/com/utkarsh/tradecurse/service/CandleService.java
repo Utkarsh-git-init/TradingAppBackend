@@ -1,5 +1,6 @@
 package com.utkarsh.tradecurse.service;
 
+import com.utkarsh.tradecurse.entity.*;
 import com.utkarsh.tradecurse.model.*;
 import com.utkarsh.tradecurse.repository.*;
 import lombok.extern.slf4j.Slf4j;

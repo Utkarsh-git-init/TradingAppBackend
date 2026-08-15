@@ -1,6 +1,6 @@
 package com.utkarsh.tradecurse.service;
 
-import com.utkarsh.tradecurse.model.Company;
+import com.utkarsh.tradecurse.entity.Company;
 import com.utkarsh.tradecurse.repository.CompanyRepo;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;

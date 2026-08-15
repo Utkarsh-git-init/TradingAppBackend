@@ -1,11 +1,8 @@
-package com.utkarsh.tradecurse.model;
+package com.utkarsh.tradecurse.entity;
 
 import com.utkarsh.tradecurse.enums.Sector;
 import com.utkarsh.tradecurse.enums.Volatility;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -18,7 +15,9 @@ public class Company {
     private Integer id;
     private String name;
     private Sector sector;
+    @Column(precision = 38, scale = 2)
     private BigDecimal currentPrice;
+    @Column(precision = 38, scale = 2)
     private BigDecimal fairPrice;
     private Volatility volatility;
     private double growthRate;

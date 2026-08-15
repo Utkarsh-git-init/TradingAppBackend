@@ -1,4 +1,4 @@
-package com.utkarsh.tradecurse.model;
+package com.utkarsh.tradecurse.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
                 columnNames = {"company_id", "timestamp"}
         ),
         indexes = {
-                @Index(name = "idx_six_hour_company_timestamp", columnList = "company_id,timestamp")
+                @Index(name = "idx_five_minute_company_timestamp", columnList = "company_id,timestamp")
         }
 )
-public class SixHourCandle {
+public class FiveMinuteCandle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,10 +1,11 @@
-package com.utkarsh.tradecurse.model;
+package com.utkarsh.tradecurse.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(
@@ -12,10 +13,10 @@ import java.time.LocalDateTime;
                 columnNames = {"company_id", "timestamp"}
         ),
         indexes = {
-                @Index(name = "idx_day_company_timestamp", columnList = "company_id,timestamp")
+                @Index(name = "idx_six_hour_company_timestamp", columnList = "company_id,timestamp")
         }
 )
-public class DayCandle {
+public class SixHourCandle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

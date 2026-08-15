@@ -1,8 +1,7 @@
 package com.utkarsh.tradecurse.service;
 
-import com.utkarsh.tradecurse.model.Company;
-import com.utkarsh.tradecurse.model.FifteenMinuteCandle;
-import com.utkarsh.tradecurse.model.MinuteCandle;
+import com.utkarsh.tradecurse.entity.Company;
+import com.utkarsh.tradecurse.entity.FifteenMinuteCandle;
 import com.utkarsh.tradecurse.repository.CompanyRepo;
 import com.utkarsh.tradecurse.repository.FifteenMinuteCandleRepo;
 import com.utkarsh.tradecurse.repository.MinuteCandleRepo;

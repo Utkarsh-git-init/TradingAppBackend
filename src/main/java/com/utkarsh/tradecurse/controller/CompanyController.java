@@ -2,6 +2,7 @@ package com.utkarsh.tradecurse.controller;
 
 import com.utkarsh.tradecurse.entity.Company;
 import com.utkarsh.tradecurse.service.CompanyService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,5 +23,12 @@ public class CompanyController {
     @GetMapping("/company")
     public List<Company> getAllCompanies(){
         return companyService.getCompanies().values().stream().toList();
+    }
+
+    @GetMapping("/company/{companyId}")
+    public ResponseEntity<?> getCompanyById(@PathVariable Integer companyId){
+        return ResponseEntity.ok().body(
+                companyService.getCompanies().get(companyId)
+        );
     }
 }

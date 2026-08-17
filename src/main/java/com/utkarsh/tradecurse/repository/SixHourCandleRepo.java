@@ -10,9 +10,5 @@ import java.util.List;
 
 @Repository
 public interface SixHourCandleRepo extends JpaRepository<SixHourCandle, Long> {
-    List<SixHourCandle> findByCompanyAndTimestampGreaterThanEqual(Company company, LocalDateTime timestampIsGreaterThan);
-
-    List<SixHourCandle> findByCompanyAndTimestampGreaterThanEqualOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan);
-
     List<SixHourCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
 }

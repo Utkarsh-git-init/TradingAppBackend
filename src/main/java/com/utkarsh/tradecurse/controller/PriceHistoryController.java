@@ -1,16 +1,12 @@
 package com.utkarsh.tradecurse.controller;
 
-import com.utkarsh.tradecurse.entity.FifteenMinuteCandle;
 import com.utkarsh.tradecurse.service.PriceHistoryService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/company/candles/{companyId}")
 public class PriceHistoryController {
     private final PriceHistoryService priceHistoryService;
 
@@ -18,8 +14,9 @@ public class PriceHistoryController {
         this.priceHistoryService = priceHistoryService;
     }
 
-    @GetMapping("/company/price_history/{companyId}")
-    public List<FifteenMinuteCandle> get24hrHistory(@PathVariable Integer companyId){
-        return priceHistoryService.get24hrHistory(companyId);
+    @GetMapping
+    public ResponseEntity<?> get24hrHistory(@PathVariable Integer companyId,@RequestParam String range){
+        return priceHistoryService.getCandles(companyId,range);
     }
+
 }

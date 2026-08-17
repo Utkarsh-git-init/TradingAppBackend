@@ -10,13 +10,5 @@ import java.util.List;
 
 @Repository
 public interface FifteenMinuteCandleRepo extends JpaRepository<FifteenMinuteCandle, Long> {
-    List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqual(Company company, LocalDateTime timestampIsGreaterThan);
-
-    List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqualOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan);
-
     List<FifteenMinuteCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
-
-    List<FifteenMinuteCandle> getByCompanyAndTimestampAfterOrderByTimestampAsc(Company company, LocalDateTime timestampAfter);
-
-    List<FifteenMinuteCandle> getByCompanyOrderByTimestampAsc(Company company);
 }

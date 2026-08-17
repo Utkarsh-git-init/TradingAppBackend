@@ -10,9 +10,6 @@ import java.util.List;
 
 @Repository
 public interface HourCandleRepo extends JpaRepository<HourCandle, Long> {
-    List<HourCandle> findByCompanyAndTimestampGreaterThanEqual(Company company, LocalDateTime timestampIsGreaterThan);
-
-    List<HourCandle> findByCompanyAndTimestampGreaterThanEqualOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan);
 
     List<HourCandle> findByCompanyAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(Company company, LocalDateTime timestampIsGreaterThan, LocalDateTime timestampIsLessThan);
 }

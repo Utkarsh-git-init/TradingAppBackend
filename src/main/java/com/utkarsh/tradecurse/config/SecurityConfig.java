@@ -38,7 +38,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/auth/*",
                                 "/stream/prices",
-                                "/company/**"
+                                "/company/**",
+                                "/admin/**"
                         )
                         .permitAll()
                         .anyRequest().authenticated()

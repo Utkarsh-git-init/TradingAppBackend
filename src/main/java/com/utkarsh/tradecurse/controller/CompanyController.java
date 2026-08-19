@@ -1,5 +1,6 @@
 package com.utkarsh.tradecurse.controller;
 
+import com.utkarsh.tradecurse.dto.CompanyDto;
 import com.utkarsh.tradecurse.entity.Company;
 import com.utkarsh.tradecurse.service.CompanyService;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,12 @@ public class CompanyController {
     @GetMapping("/company/{companyId}")
     public ResponseEntity<?> getCompanyById(@PathVariable Integer companyId){
         return ResponseEntity.ok().body(
-                companyService.getCompanies().get(companyId)
+                companyService.getCompanyById(companyId)
         );
+    }
+
+    @PatchMapping("/admin/company/{companyId}")
+    public ResponseEntity<?> updateCompany(@PathVariable Integer companyId, @RequestBody CompanyDto companyDto){
+        return companyService.updateCompany(companyId,companyDto);
     }
 }

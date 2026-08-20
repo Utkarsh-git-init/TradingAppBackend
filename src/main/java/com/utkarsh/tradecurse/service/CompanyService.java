@@ -66,6 +66,10 @@ public class CompanyService {
         companyDto.setCurrentPrice(company.getCurrentPrice());
         companyDto.setEmployees(company.getEmployees());
         companyDto.setSymbol(company.getSymbol());
+        companyDto.setMarketCap(
+                company.getCurrentPrice()
+                        .multiply(BigDecimal.valueOf(company.getSharesOutstanding()))
+        );
 
         CompanyFundamentals fundamentals=new CompanyFundamentals();
         fundamentals.setEps(company.getEps());

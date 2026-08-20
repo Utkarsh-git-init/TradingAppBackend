@@ -20,6 +20,7 @@ public class CompanyDto {
     private Integer foundedYear;
     private String exchange;
     private String currency;
+    private BigDecimal marketCap;
 
     private CompanyFundamentals fundamentals;
 

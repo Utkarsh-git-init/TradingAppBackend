@@ -1,6 +1,8 @@
 package com.utkarsh.tradecurse.service;
 
+import com.utkarsh.tradecurse.dto.UserDto;
 import com.utkarsh.tradecurse.entity.UserModel;
+import com.utkarsh.tradecurse.model.UserPrincipal;
 import com.utkarsh.tradecurse.repository.UserRepo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

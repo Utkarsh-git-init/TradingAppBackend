@@ -36,10 +36,10 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
-                                "/auth/*",
+                                "/auth/login",
+                                "/auth/register",
                                 "/stream/prices",
-                                "/company/**",
-                                "/admin/**"
+                                "/company/**"
                         )
                         .permitAll()
                         .anyRequest().authenticated()

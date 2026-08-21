@@ -13,8 +13,11 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false)
     private String name;
+    @Enumerated(EnumType.STRING)
     private Sector sector;
+    @Column(unique = true, nullable = false)
     private String symbol;
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -35,9 +38,10 @@ public class Company {
     private BigDecimal fairPrice;
 
     //simulation parameters
+    @Enumerated(EnumType.STRING)
     private Volatility volatility;
     private double growthRate;
     private double meanReversion;
-    private double trend;
+    private double trend; //unused
 
 }

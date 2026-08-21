@@ -6,5 +6,5 @@ import lombok.Data;
 public class MarketState {
     private double marketFactor;
 
-    private double sigma;
+   // private double sigma;
 }

@@ -28,7 +28,7 @@ public class PriceSimulationService {
 
     public PriceSimulationService(CompanyService companyService) {
         marketState.setMarketFactor(0);
-        marketState.setSigma(0.0005);
+       // marketState.setSigma(0.0005);
         this.companyService = companyService;
     }
 
@@ -98,14 +98,19 @@ public class PriceSimulationService {
     private void updateSigma(SimulationState state) {
         double sigma = state.getCurrentSigma();
         // Small random movement
-        sigma += ThreadLocalRandom.current().nextGaussian() * 0.002;
+        sigma += ThreadLocalRandom.current()
+                .nextGaussian() * 0.0005;
 
         double base = state.getBaseSigma();
 
         // Prevent it from drifting forever
-        sigma += (base - sigma) * 0.02;
+        sigma += (base - sigma) * 0.01;
 
-        sigma = Math.clamp(sigma, base * 0.5, base * 2.0);
+        sigma = Math.clamp(
+                sigma,
+                base * 0.6,
+                base * 1.8
+        );
 
         state.setCurrentSigma(sigma);
     }
@@ -114,11 +119,11 @@ public class PriceSimulationService {
 
         double market = marketState.getMarketFactor();
 
-        market += ThreadLocalRandom.current().nextGaussian()* 0.01;
+        market += ThreadLocalRandom.current().nextGaussian() * 0.003;
 
-        market += (0 - market) * 0.01;
+        market += (0 - market) * 0.02;
 
-        market = Math.clamp(market, -0.15, 0.15);
+        market = Math.clamp(market, -0.10, 0.10);
 
         marketState.setMarketFactor(market);
     }

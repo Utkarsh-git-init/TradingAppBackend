@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/company/candles/{companyId}")
 public class PriceHistoryController {
     private final PriceHistoryService priceHistoryService;
 
@@ -14,7 +13,7 @@ public class PriceHistoryController {
         this.priceHistoryService = priceHistoryService;
     }
 
-    @GetMapping
+    @GetMapping("/company/candles/{companyId}")
     public ResponseEntity<?> get24hrHistory(@PathVariable Integer companyId,@RequestParam String range){
         return priceHistoryService.getCandles(companyId,range);
     }

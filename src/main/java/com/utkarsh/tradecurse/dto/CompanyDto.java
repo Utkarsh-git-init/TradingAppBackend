@@ -2,7 +2,6 @@ package com.utkarsh.tradecurse.dto;
 
 import com.utkarsh.tradecurse.enums.Interval;
 import com.utkarsh.tradecurse.enums.Sector;
-import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.math.BigDecimal;

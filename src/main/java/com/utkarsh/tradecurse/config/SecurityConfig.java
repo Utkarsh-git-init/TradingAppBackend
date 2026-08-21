@@ -39,7 +39,8 @@ public class SecurityConfig {
                                 "/auth/login",
                                 "/auth/register",
                                 "/stream/prices",
-                                "/company/**"
+                                "/company/**",
+                                "/market"
                         )
                         .permitAll()
                         .anyRequest().authenticated()
